@@ -3,15 +3,10 @@ const path = require('path')
 const app = express();
 
 const Port = process.env.PORT || 8000;
+// setup static folder
 
-app.get('/',(req,res)=>{
-    res.send({message: 'hello message changed'});
-})
+app.use(express.static(path.join(__dirname,'public')))
 
-app.get('/about',(req,res)=>{
-    // res.sendFile(__dirname + '/public/index.html')
-    res.sendFile(path.join(__dirname ,'public', 'index.html'))
-})
 app.listen(Port,()=>{
     console.log('server is running on port '+Port);
 })
