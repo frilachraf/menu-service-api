@@ -9,8 +9,12 @@ const Port = process.env.PORT || 8000;
 // app.use(express.static(path.join(__dirname,'public')))
 
 app.get('/api/dishes', (req,res)=>{
-    // res.send(dishes)
+    console.log(req.query)
     res.json(dishes)
+})
+app.get('/api/dishes/:id',(req,res)=>{
+    console.log(req.params);
+    res.json(dishes[0])
 })
 app.listen(Port,()=>{
     console.log('server is running on port '+Port);
